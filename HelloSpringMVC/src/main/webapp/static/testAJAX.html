@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#btn").click(function () {
+                $.get("../testAJAX", { id:1, account:"ShouHe", password:"Doge1586287"}, function (data) {
+                    console.log(data);
+                })
+            })
+        })
+    </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">TestAJAX</button>
+</body>
+</html>
