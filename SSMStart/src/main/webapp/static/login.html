@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script type="text/javascript" src="static/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="static/js/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $("#sign_in_btn").click(function() {
+                    var username = $("#username").val();
+                    var password = $("#password").val();
+                    console.log(username);
+                    console.log(password);
+                    $.get("findUserByNameAndPassword", { user_name:username, user_password:password}, function(data) {
+                        if(data === 1) {
+                            alert("sign in success!");
+                        }else {
+                            alert("oh shit!");
+                        }
+                    })
+                })
+            })
+        </script>
+        <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" >
+        <link rel="stylesheet" type="text/css" href="static/css/login.css" >
+    </head>
+    <body>
+        <div id="login_div">
+            <form id="login_form" onsubmit="return false">
+                <div class="mb-3">
+                    <label for="username" class="form-label">UserName</label>
+                    <input type="text" class="form-control" id="username" aria-describedby="UserNameTips">
+                    <div id="UserNameTips" class="form-text">Enter your UserName please.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" aria-describedby="PasswordTips">
+                    <div id="PasswordTips" class="form-text">Enter your Password please.</div>
+                </div>
+                <button id="sign_in_btn" type="submit" class="btn btn-primary" >Sign in</button>
+            </form>
+        </div>
+    </body>
+</html>

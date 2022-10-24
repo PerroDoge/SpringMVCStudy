@@ -1,0 +1,5 @@
+com\mws\mapper\UserMapper.class
+com\mws\service\UserService.class
+com\mws\pojo\User.class
+com\mws\service\impl\UserServiceImpl.class
+com\mws\controller\UserController.class
