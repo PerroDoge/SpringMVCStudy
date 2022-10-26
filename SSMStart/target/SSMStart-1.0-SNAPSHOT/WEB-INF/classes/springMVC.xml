@@ -29,7 +29,13 @@
     <!--视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     </bean>
+    <!--拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/findUserByNameAndPassword"/>
+            <bean id="MyInterceptor" class="com.mws.interceptors.MyInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
     <!--配置静态资源放行-->
-
-    <mvc:resources mapping="/static/**" location="/static/"></mvc:resources>
+    <mvc:resources mapping="/static/**" location="/static/" />
 </beans>
