@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" >
+    <link rel="stylesheet" type="text/css" href="css/register.css" >
+    <script type="text/javascript">
+        $(function() {
+            $.ajax({
+                type:'get',
+                url:"../getAllPlayer",
+                success:function(data) {
+                    console.log(data);
+                    $.each(data,function(i, e) {
+                        console.log(e);
+                        $("#playerTable").append("<tr>\n" +
+                            "        <td>"+e.id+"</td>\n" +
+                            "        <td>"+e.name+"</td>\n" +
+                            "        <td>"+e.password+"</td>\n" +
+                            "        <td>"+e.nickname+"</td>\n" +
+                            "        <td><img src='http://27.184.162.76:8189/upload/"+e.icon+"'></td>\n" +
+                            "        <td ><a href='../download?fileName="+e.icon+"&filetype="+e.filetype+"'>download</a></td>\n" +
+                            "    </tr>")
+                    })
+                }
+            })
+        })
+    </script>
+    <style>
+        *{
+            margin:0 auto;
+            text-align: center;
+        }
+        #playerTable img {
+            width:100px;
+            height:100px;
+        }
+    </style>
+</head>
+<body>
+<div style="width:600px">
+<table id="playerTable" class="table table-dark table-hover">
+    <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>password</th>
+        <th>nickname</th>
+        <th>icon</th>
+        <th>hi~</th>
+    </tr>
+</table>
+</div>
+</body>
+</html>
